@@ -3,15 +3,22 @@
   "version": "1.0.0",
   "description": "Boilerplate",
   "main": "index.js",
-  "repository": "git@github.com:matiasbn/celo_demo.git",
+  "repository": "git@github.com:matiasbn/es6-boilerplate.git",
   "author": "Matías Barrios",
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start:dev": "nodemon --watch .env --watch src --exec babel-node src --source-maps"
+    "start:dev": "nodemon --watch .env --watch src --exec babel-node src --source-maps",
+    "lint": "eslint src/**/*.js --fix && echo Lint passed ❤",
+    "clean": "rimraf dist && mkdir dist",
+    "prebuild": "npm run clean && cp package.json yarn.lock dist",
+    "build": "npm run prebuild && cross-env NODE_ENV=production babel src -D --out-dir dist --source-maps"
   },
   "dependencies": {
-    "@babel/runtime": "^7.4.5"
+    "@babel/runtime": "^7.4.5",
+    "@hapi/joi": "^16.1.7",
+    "app-root-path": "^3.0.0",
+    "dotenv": "^8.2.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
