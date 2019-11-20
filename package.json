@@ -7,6 +7,9 @@
   "author": "Matías Barrios",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "start:dev": "nodemon --watch .env --watch src --exec babel-node src --source-maps"
+  },
   "dependencies": {
     "@babel/runtime": "^7.4.5"
   },
